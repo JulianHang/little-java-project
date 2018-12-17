@@ -2,8 +2,8 @@ package tech.zlia.interest.lottery;
 
 /**
  * 抽奖小项目
- * @version - 1.0.0 2018-12-16
- * @author - zlia
+ * @version 1.0.0 2018-12-16
+ * @author zlia
  */
 public class LotteryArray {
 
