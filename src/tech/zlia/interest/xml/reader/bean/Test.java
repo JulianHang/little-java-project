@@ -1,9 +1,23 @@
 package tech.zlia.interest.xml.reader.bean;
 
+/**
+ * 对应config.xml中的test节点
+ */
 public class Test {
 
+    /**
+     * 对应config.xml中的test节点的id属性
+     */
     private String id;
+
+    /**
+     * 对应config.xml中的test节点的key属性
+     */
     private String key;
+
+    /**
+     * 对应config.xml中的test节点的文本
+     */
     private String text;
 
     public String getId() {

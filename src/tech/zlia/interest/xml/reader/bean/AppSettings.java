@@ -1,9 +1,23 @@
 package tech.zlia.interest.xml.reader.bean;
 
+/**
+ * 对应config.xml中的appSettings节点
+ */
 public class AppSettings {
 
+    /**
+     * 对应config.xml中的appSettings节点的id属性
+     */
     private String id;
+
+    /**
+     * 对应config.xml中的appSettings节点的key属性
+     */
     private String key;
+
+    /**
+     * 对应config.xml中的appSettings节点的文本
+     */
     private String text;
 
     public String getId() {

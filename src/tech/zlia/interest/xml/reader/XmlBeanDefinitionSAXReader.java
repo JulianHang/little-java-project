@@ -26,7 +26,7 @@ public class XmlBeanDefinitionSAXReader {
     private final static String NODE_TEXT = "nodeText";
 
     /**
-     *
+     * 测试方法
      * @param args
      * @throws Exception
      */
@@ -168,3 +168,16 @@ public class XmlBeanDefinitionSAXReader {
         return currentJson;
     }
 }
+
+/* 结果展示 记得引入dom4j和fastjson两个jar.dom4j主要用来解析xml，fastjson主要用来封装xml数据成json对象，并转换成相应的实体
+
+<configuration id="id0" key="key0">
+    <appSettings id="id1" key="key1"></appSettings>
+    <appSettings id="id2" key="key2"></appSettings>
+    <test id="id3" key="key3">23</test>
+</configuration>
+
+指定节点名称：appSettings
+指定节点的Json对象：{"appSettings":{"id":"id1","key":"key1","nodeText":""}}
+对象属性：id：id1,key：key1,text：null
+ */
