@@ -1,4 +1,4 @@
-package tech.zlia.interest.xml.reader.bean;
+package tech.zlia.interest.xml.parse.bean;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class Configuration {
      * 对应config.xml中的configuration节点的多个appSettings子节点
      */
     private List<AppSettings> appSettings;
-    private Test test;
+    private Connection connection;
 
     public String getId() {
         return id;
@@ -62,16 +62,16 @@ public class Configuration {
         this.appSettings = appSettings;
     }
 
-    public Test getTest() {
-        return test;
+    public Connection getConnection() {
+        return connection;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setConnection(Connection test) {
+        this.connection = connection;
     }
 
     @Override
     public String toString() {
-        return "id："+id+",key："+key+",text："+text+",appSettings："+appSettings + ",test：" + test;
+        return "id："+id+",key："+key+",text："+text+",appSettings："+appSettings + ",connection：" + connection;
     }
 }

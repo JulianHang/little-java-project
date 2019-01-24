@@ -1,5 +1,5 @@
 <configuration id="id0" key="key0">
     <appSettings id="id1" key="key1"></appSettings>
     <appSettings id="id2" key="key2"></appSettings>
-    <test id="id3" key="key3">23</test>
+    <connection id="id3" key="key3">23</connection>
 </configuration>

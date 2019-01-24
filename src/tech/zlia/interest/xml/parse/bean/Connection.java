@@ -1,24 +1,24 @@
-package tech.zlia.interest.xml.reader.bean;
+package tech.zlia.interest.xml.parse.bean;
 
 /**
- * 对应config.xml中的appSettings节点
+ * 对应config.xml中的test节点
  * @version 2018-12-20
  * @author zlia
  */
-public class AppSettings {
+public class Connection {
 
     /**
-     * 对应config.xml中的appSettings节点的id属性
+     * 对应config.xml中的test节点的id属性
      */
     private String id;
 
     /**
-     * 对应config.xml中的appSettings节点的key属性
+     * 对应config.xml中的test节点的key属性
      */
     private String key;
 
     /**
-     * 对应config.xml中的appSettings节点的文本
+     * 对应config.xml中的test节点的文本
      */
     private String text;
 
