@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * 对应config.xml中的configuration节点
+ * @verison 2018-12-20
+ * @author zlia
  */
 public class Configuration {
 

@@ -2,6 +2,8 @@ package tech.zlia.interest.xml.reader.bean;
 
 /**
  * 对应config.xml中的appSettings节点
+ * @version 2018-12-20
+ * @author zlia
  */
 public class AppSettings {
 
