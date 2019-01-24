@@ -31,7 +31,7 @@ public class XmlBeanDefinitionSAXReader {
      * @throws Exception
      */
     public static void main(String[] args)throws  Exception {
-        InputStream inputStream = XmlBeanDefinitionSAXReader.class.getResource("/config.xml").openStream();
+        InputStream inputStream = XmlBeanDefinitionSAXReader.class.getResource("/tech/zlia/interest/xml/reader/config.xml").openStream();
         SAXReader reader = new SAXReader();
         Document document = reader.read(inputStream);
         XmlBeanDefinitionSAXReader xdsr = new XmlBeanDefinitionSAXReader();
