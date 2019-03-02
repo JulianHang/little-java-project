@@ -4,13 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.dom4j.Attribute;
-import org.dom4j.Document;
 import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-import tech.zlia.interest.xml.parse.bean.AppSettings;
-import tech.zlia.interest.xml.parse.bean.Configuration;
 
-import java.io.InputStream;
 import java.util.List;
 
 /**
