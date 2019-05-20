@@ -13,14 +13,22 @@ public class TestFeature {
     public static void main(String[] args) {
         Class<TestAnnotation> clazz = TestAnnotation.class;
         Annotation[] annotaions = clazz.getAnnotations();
-
-        for (Annotation annotaion : annotaions) {
-            if (annotaion instanceof  CustomizeAnnotation) {
-                int age = ((CustomizeAnnotation) annotaion).age();
-                String name = ((CustomizeAnnotation) annotaion).name();
+        for (Annotation annotation : annotaions) {
+            if (annotation instanceof  CustomizeAnnotation) {
+                int age = ((CustomizeAnnotation) annotation).age();
+                String name = ((CustomizeAnnotation) annotation).name();
                 System.out.println(MessageFormat.format("注解中的age字段：{0}", age));
                 System.out.println(MessageFormat.format("注解中的name字段：{0}", name));
             }
+        }
+
+        //处理重复注解，若不重复则该注解的长度为1
+        CustomizeAnnotation[] customizeAnnotations = clazz.getAnnotationsByType(CustomizeAnnotation.class);
+        for (CustomizeAnnotation customizeAnnotation : customizeAnnotations) {
+            int age = customizeAnnotation.age();
+            String name = customizeAnnotation.name();
+            System.out.println(MessageFormat.format("注解中的age字段：{0}", age));
+            System.out.println(MessageFormat.format("注解中的name字段：{0}", name));
         }
     }
 }

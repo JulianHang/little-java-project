@@ -6,5 +6,6 @@ package tech.zlia.interest.annotation;
  * @author zlia
  */
 @CustomizeAnnotation( name = "lisi", age = 20)
+@CustomizeAnnotation( name = "zhangsan", age = 21)
 public class TestAnnotation {
 }

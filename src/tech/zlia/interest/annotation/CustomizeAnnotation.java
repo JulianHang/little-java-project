@@ -12,6 +12,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Inherited
+@Repeatable(AnnotationContainer.class)
 public @interface CustomizeAnnotation {
 
     String name() default "zhangsan";
@@ -33,4 +34,5 @@ public @interface CustomizeAnnotation {
  *            - ElementType.ANNOTATION_TYPE - 另一个注释
  *            - ElementType.PACKAGE - 用于记录java文件的package信息
  * @Inherited - 定义该注解和子类的关系，允许子类继承父类中的注解
+ * @Repeatable - 可重复定义该注解，只不过通过getAnnotation来获取时只会拿到容器对象，即AnnotationContainer，具体写法参考测试类
  */
