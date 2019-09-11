@@ -1,5 +1,7 @@
 package tech.zlia.interest.algorithm.tree.binary;
 
+import java.util.Arrays;
+
 /**
  * 测试二叉树
  * @version  - 2019-9-10
@@ -34,6 +36,38 @@ public class TestFeature {
         System.out.println("contains：" + sbt.contains(13));
 
 //        sbt.clear();
+
+        System.out.println("=======================dividing line===================");
+
+        String[] proStr = sbt.proOrder().split(" ");
+        Integer[] proI = new Integer[proStr.length];
+        for (int i = 0; i < proStr.length; i++) {
+            proI[i] = Integer.parseInt(proStr[i]);
+        }
+
+        String[] medStr = sbt.medOrder().split(" ");
+        Integer[] medI = new Integer[medStr.length];
+        for (int i = 0; i < medI.length; i++) {
+            medI[i] = Integer.parseInt(medStr[i]);
+        }
+
+        String[] postStr = sbt.postOrder().split(" ");
+        Integer[] postI = new Integer[postStr.length];
+        for (int i = 0; i < postI.length; i++) {
+            postI[i] = Integer.parseInt(postStr[i]);
+        }
+
+
+        BinarySearchTree<Integer> sbtAnother = new BinarySearchTree<>();
+//        前序 + 中序
+//        BinaryTreeNode<Integer> root = sbtAnother.createBinaryTreeByProMedOrder(proI, medI, 0, proI.length - 1, 0, medI.length - 1);
+//        后序 + 中序
+        BinaryTreeNode<Integer> root = sbtAnother.createBinaryTreeByPostMedOrder(postI, medI, 0, proI.length - 1, 0, medI.length - 1);
+
+        System.out.println("proOrder：" + sbt.proOrder(root));
+        System.out.println("medOrder：" + sbt.medOrder(root));
+        System.out.println("postOrder：" + sbt.postOrder(root));
+
     }
 }
 
@@ -51,5 +85,8 @@ findOfMax：19
 findOfMin：5
 contains：true
 contains：false
+=======================dividing line===================
+proOrder：16 10 5 14 12 11 15 18 19
+medOrder：5 10 11 12 14 15 16 18 19
 
 */

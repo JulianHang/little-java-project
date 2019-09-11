@@ -80,7 +80,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
         return proOrder(getRoot());
     }
 
-    private String proOrder(BinaryTreeNode<T> node) {
+    String proOrder(BinaryTreeNode<T> node) {
         if (node == null) {
             return "";
         }
@@ -111,7 +111,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
         return medOrder(getRoot());
     }
 
-    private String medOrder(BinaryTreeNode<T> node) {
+    String medOrder(BinaryTreeNode<T> node) {
         if (node == null) {
             return "";
         }
@@ -144,7 +144,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
         return postOrder(getRoot());
     }
 
-    private String postOrder(BinaryTreeNode<T> node) {
+    String postOrder(BinaryTreeNode<T> node) {
         if (node == null) {
             return  "";
         }
@@ -171,7 +171,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
 
     @Override
     public String levelOrder() {
-        ArrayDeque<BinaryTreeNode> ad = new ArrayDeque<>();
+        ArrayDeque<BinaryTreeNode<T>> ad = new ArrayDeque<>();
         StringJoiner sj = new StringJoiner(" ");
         BinaryTreeNode<T> node = getRoot();
 
@@ -344,4 +344,94 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
         }
         node = null;
     }
+
+    /**
+     * 通过前序、中序确定一棵树的结构
+     * <p>此过程两个数组一直保持不变
+     * @param pro 前序数组
+     * @param med 中序数组
+     * @param proStart 前序数组左/右子树的起始索引
+     * @param proEnd 前序数组左/右子树的结束索引
+     * @param medStart 中序数组左/右子树的起始索引
+     * @param medEnd 中序数组左/右子树的结束索引
+     * @return 根节点
+     */
+    BinaryTreeNode<T> createBinaryTreeByProMedOrder(T[] pro, T[] med, int proStart, int proEnd, int medStart, int medEnd) {
+
+        BinaryTreeNode<T> node = new BinaryTreeNode<>(pro[proStart], null, null);
+
+        //考虑结束点
+        if (proStart == proEnd && medStart == medEnd) {
+            return node;
+        }
+
+        int index = medStart;
+        for (; index < medEnd; index++) {
+            if (pro[proStart].equals(med[index])) {
+                break;
+            }
+        }
+
+        int leftLen = index - medStart;//计算左子树的个数
+        int rightLen = medEnd - index;//计算右子树的个数
+
+        //构建左子树
+        if (leftLen > 0) {
+            BinaryTreeNode<T> leftNode = createBinaryTreeByProMedOrder(pro, med, proStart + 1, proStart + leftLen, medStart, index - 1);
+            node.setLeft(leftNode);
+        }
+
+        //构建右子树
+        if (rightLen > 0) {
+            BinaryTreeNode<T> rightNode = createBinaryTreeByProMedOrder(pro, med, proStart + 1 + leftLen, proEnd, index + 1, medEnd);
+            node.setRight(rightNode);
+        }
+
+        return node;
+    }
+
+    /**
+     * 通过后序、中序确定一棵树的结构
+     * <p>此过程两个数组一直保持不变
+     * @param post 后序数组
+     * @param med 中序数组
+     * @param postStart 后序数组左/右子树的起始索引
+     * @param postEnd 后序数组左/右子树的结束索引
+     * @param medStart 中序数组左/右子树的起始索引
+     * @param medEnd 中序数组左/右子树的结束索引
+     * @return 根节点
+     */
+    BinaryTreeNode<T> createBinaryTreeByPostMedOrder(T[] post, T[] med, int postStart, int postEnd, int medStart, int medEnd) {
+
+        BinaryTreeNode<T> node = new BinaryTreeNode<>(post[postEnd], null, null);
+
+        if (postStart == postEnd && medStart == medEnd) {
+            return node;
+        }
+
+        int index = medStart;
+        for (;index < medEnd; index++) {
+            if (post[postEnd].equals(med[index])) {
+                break;
+            }
+        }
+
+        int leftLen = index - medStart;
+        int rightLen = medEnd - index;
+
+        //构建左子树
+        if (leftLen > 0) {
+            BinaryTreeNode<T> leftNode = createBinaryTreeByPostMedOrder(post, med, postStart, postEnd - rightLen - 1, medStart, index - 1);
+            node.setLeft(leftNode);
+        }
+
+        //构建右子树
+        if (rightLen > 0) {
+            BinaryTreeNode<T> rightNode = createBinaryTreeByPostMedOrder(post, med, postEnd - rightLen, postEnd - 1, index + 1, medEnd);
+            node.setRight(rightNode);
+        }
+
+        return node;
+    }
+
 }
