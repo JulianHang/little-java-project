@@ -12,6 +12,8 @@ import java.util.StringJoiner;
  * <p>外部通过调用该类即可
  * <p>该类涉及到的算法主要参考了一篇文章，链接：https://blog.csdn.net/javazejian/article/details/53727333
  * <p>涉及到算法很看重递归想法，以上的这篇文章在算法上讲的不错，但是类的设计上个人觉得不怎么好！
+ * @version - 1.0.0 2019-09-12
+ * @author - zlia
  */
 public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, BinaryTreeNode<T>> {
 
@@ -62,7 +64,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
      * @param node 根节点
      * @return 树的高/深度
      */
-    private int height(BinaryTreeNode<T> node) {
+    int height(BinaryTreeNode<T> node) {
         if (node == null) {
             return 0;
         }
@@ -265,7 +267,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
     }
 
     private BinaryTreeNode<T> findNode(T data, BinaryTreeNode<T> node) {
-        if (node == null){
+        if (node == null || data == null || "".equals(data)){
             return null;
         }
 

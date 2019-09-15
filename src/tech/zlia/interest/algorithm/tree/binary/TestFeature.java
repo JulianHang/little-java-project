@@ -1,7 +1,5 @@
 package tech.zlia.interest.algorithm.tree.binary;
 
-import java.util.Arrays;
-
 /**
  * 测试二叉树
  * @version  - 2019-9-10
