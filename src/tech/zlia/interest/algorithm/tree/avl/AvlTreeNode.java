@@ -8,7 +8,7 @@ import tech.zlia.interest.algorithm.tree.TreeNode;
  * 高度：从叶子节点自底向上到指定节点的长度，叶子节点高度是0
  * @param <T> 节点的数据类型
  */
-public class AvlTreeNode<T> implements TreeNode<T> {
+public class AvlTreeNode<T extends Comparable<T>> implements TreeNode<T> {
 
     /**
      * 当前节点的数据

@@ -6,8 +6,7 @@ import tech.zlia.interest.algorithm.tree.TreeNode;
 /**
  * 二叉树中节点的实现者
  */
-public class BinaryTreeNode<T> implements TreeNode<T>{
-
+public class BinaryTreeNode<T extends Comparable<T>> implements TreeNode<T>{
 
     /**
      * 定义数据类型

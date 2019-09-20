@@ -349,6 +349,12 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractTree<T, B
 
     /**
      * 通过前序、中序确定一棵树的结构
+     * 前序 + 后序  无法确定一颗二叉树
+     * 比如前序：ABDC    后序：DBCA   有两种可能
+     *       A                 A
+     *    B   C             B    C
+     *  D                    D
+     * 前序与后序定义的是父子之间的关系，兄弟之间的关系无法完全确定（就比如上面如此），故因此无法确定一棵二叉树
      * <p>此过程两个数组一直保持不变
      * @param pro 前序数组
      * @param med 中序数组
